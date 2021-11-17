@@ -5,7 +5,7 @@
     </div>
     <p class="product__price">{{ product.price }} &#8381;</p>
     <a href="#" class="product__name">{{ product.name }}</a>
-    <ProductCounter @increase="increase" @decrease="decrease" :count="count" />
+    <ProductCounter :count.sync="count" />
     <button class="product__add button" @click="addInCart">В корзину</button>
   </div>
 </template>
@@ -30,13 +30,6 @@ export default {
     };
   },
   methods: {
-    increase() {
-      this.count++;
-    },
-    decrease() {
-      if (this.count === 0) return 0;
-      this.count--;
-    },
     addInCart() {
       this.$store.commit('addInCart', {
         product: this.product,
