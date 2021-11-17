@@ -1,11 +1,17 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <Products />
+  </div>
 </template>
 
 <script>
+import Products from '@/views/pages/Products';
+
 export default {
   name: 'App',
-  components: {},
+  components: {
+    Products,
+  },
   created() {
     this.$store.dispatch('getProducts');
   },
