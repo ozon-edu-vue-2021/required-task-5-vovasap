@@ -8,7 +8,7 @@
     <input class="product__add" type="button" value="В корзину" />
   </div>
 </template>
-<script lang="ts">
+<script>
 export default {
   name: 'Product',
   components: {},
