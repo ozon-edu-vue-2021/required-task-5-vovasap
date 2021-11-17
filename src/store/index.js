@@ -7,13 +7,22 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     products: [],
+    cart: new Map(),
   },
   getters: {
     products: (state) => state.products,
+    cart: (state) => state.cart,
   },
   mutations: {
     setProducts: (state, products) => {
       state.products = products;
+    },
+    addInCart: (state, { product, count }) => {
+      if (!state.cart.has(product)) {
+        state.cart.set(product, count);
+      } else {
+        state.cart.set(product, state.cart.get(product) + count);
+      }
     },
   },
   actions: {
