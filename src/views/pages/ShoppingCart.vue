@@ -45,11 +45,3 @@ export default {
   },
 };
 </script>
-<style>
-.shopping-card__transaction {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 10px;
-}
-</style>

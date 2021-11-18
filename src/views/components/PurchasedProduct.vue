@@ -40,16 +40,3 @@ export default {
   },
 };
 </script>
-<style>
-.purchased-product__card {
-  display: flex;
-  margin-bottom: 10px;
-}
-.purchased-product__image {
-  max-width: 200px;
-  object-fit: contain;
-}
-.purchased-product__info {
-  padding: 10px;
-}
-</style>

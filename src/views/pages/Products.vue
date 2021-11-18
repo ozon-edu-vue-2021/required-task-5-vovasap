@@ -28,14 +28,3 @@ export default {
   },
 };
 </script>
-<style>
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.products {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-}
-</style>
