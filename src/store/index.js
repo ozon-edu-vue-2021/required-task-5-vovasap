@@ -25,6 +25,12 @@ export default new Vuex.Store({
         [product.id]: product,
       };
     },
+    updateProduct: (state, product) => {
+      state.products = state.products.map((productInStore) => {
+        if (product.id === productInStore.id) return product;
+        return productInStore;
+      });
+    },
     addInCart: (state, product) => {
       if (state.cart[product.id]) {
         const count = product.count + state.cart[product.id].count;
@@ -96,6 +102,7 @@ export default new Vuex.Store({
 
         product.name = names[index];
         product.price = Math.floor(Math.random() * (1000 - 50) + 50);
+        product.favorite = false;
         return product;
       });
 

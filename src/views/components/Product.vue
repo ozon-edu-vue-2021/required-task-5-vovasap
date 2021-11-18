@@ -1,6 +1,12 @@
 <template>
   <div class="product__card">
     <div class="product__wrapper-image">
+      <span
+        class="heart"
+        :class="{ favorite: product.favorite }"
+        @click="toggleFavorite"
+        >&#9829;</span
+      >
       <img :src="image" class="product__image" :alt="product.image" />
     </div>
     <p class="product__price">{{ product.price }} &#8381;</p>
@@ -36,6 +42,12 @@ export default {
         count: this.count,
       });
       this.$store.dispatch('updateTotal');
+    },
+    toggleFavorite() {
+      this.$store.commit('updateProduct', {
+        ...this.product,
+        favorite: !this.product.favorite,
+      });
     },
   },
 };
@@ -101,5 +113,15 @@ export default {
 }
 .button:active {
   background-color: #ff37a2;
+}
+.heart {
+  position: absolute;
+  right: 5px;
+  color: #fff;
+  font-size: 50px;
+  cursor: pointer;
+}
+.favorite {
+  color: #f33;
 }
 </style>
