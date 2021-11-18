@@ -32,7 +32,7 @@ export default {
   watch: {
     innerProduct: {
       handler(value) {
-        this.$store.commit('updateProduct', value);
+        this.$store.commit('updateProductInCart', value);
         this.$store.dispatch('updateTotal');
       },
       deep: true,

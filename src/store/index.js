@@ -19,9 +19,9 @@ export default new Vuex.Store({
     setProducts: (state, products) => {
       state.products = products;
     },
-    updateProduct: (state, product) => {
-      state.products = {
-        ...state.products,
+    updateProductInCart: (state, product) => {
+      state.cart = {
+        ...state.cart,
         [product.id]: product,
       };
     },
