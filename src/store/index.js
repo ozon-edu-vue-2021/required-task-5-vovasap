@@ -14,6 +14,7 @@ export default new Vuex.Store({
     products: (state) => state.products,
     cart: (state) => state.cart,
     total: (state) => state.total,
+    favorites: (state) => state.products.filter((product) => product.favorite),
   },
   mutations: {
     setProducts: (state, products) => {
