@@ -32,9 +32,10 @@ export default {
   methods: {
     addInCart() {
       this.$store.commit('addInCart', {
-        product: this.product,
+        ...this.product,
         count: this.count,
       });
+      this.$store.dispatch('updateTotal');
     },
   },
 };

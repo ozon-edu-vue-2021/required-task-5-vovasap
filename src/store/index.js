@@ -7,25 +7,47 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     products: [],
-    cart: new Map(),
+    cart: {},
+    total: 0,
   },
   getters: {
     products: (state) => state.products,
     cart: (state) => state.cart,
+    total: (state) => state.total,
   },
   mutations: {
     setProducts: (state, products) => {
       state.products = products;
     },
-    addInCart: (state, { product, count }) => {
-      if (!state.cart.has(product)) {
-        state.cart.set(product, count);
+    updateProduct: (state, product) => {
+      state.products = {
+        ...state.products,
+        [product.id]: product,
+      };
+    },
+    addInCart: (state, product) => {
+      if (state.cart[product.id]) {
+        const count = product.count + state.cart[product.id].count;
+        state.cart[product.id] = {
+          ...product,
+          count,
+        };
       } else {
-        state.cart.set(product, state.cart.get(product) + count);
+        state.cart[product.id] = product;
       }
+    },
+    setTotal: (state, total) => {
+      state.total = total;
     },
   },
   actions: {
+    updateTotal({ state, commit }) {
+      const total = Object.values(state.cart).reduce((total, product) => {
+        const sum = product.count * product.price;
+        return total + sum;
+      }, 0);
+      commit('setTotal', total);
+    },
     async getProducts({ commit }) {
       const products = await ApiService.getProducts();
 

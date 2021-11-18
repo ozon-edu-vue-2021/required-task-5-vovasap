@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <nav class="menu__list">
       <router-link to="/" class="menu__item">Каталог</router-link>
       <router-link to="favorites" class="menu__item">Избранное</router-link>
