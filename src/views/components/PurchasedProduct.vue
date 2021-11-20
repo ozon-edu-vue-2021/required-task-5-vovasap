@@ -2,7 +2,7 @@
   <div class="purchased-product__card">
     <img :src="image" class="purchased-product__image" :alt="product.image" />
     <div class="purchased-product__info">
-      <a href="#" class="product__name">{{ innerProduct.name }}</a>
+      <a href="#" class="product__name">{{ innerProduct.dish }}</a>
       <p class="purchased-product__price">{{ innerProduct.price }} &#8381;</p>
       <ProductCounter :count.sync="innerProduct.count" />
       <p>Сумма: {{ innerProduct.count * innerProduct.price }} &#8381;</p>

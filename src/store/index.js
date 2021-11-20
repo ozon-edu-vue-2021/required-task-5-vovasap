@@ -72,45 +72,11 @@ export default new Vuex.Store({
         6136172483, 6140906765, 6142673815, 6142681673, 6142683276, 6148226736,
       ];
 
-      const names = [
-        'infantine',
-        'blunderbuss',
-        'guttling',
-        'fickly',
-        'dehydrators',
-        'exacerbate',
-        'teaks',
-        'prigging',
-        'dhobis',
-        'indifferent',
-        'plunkers',
-        'prissiness',
-        'hornwort',
-        'reconveyed',
-        'prebook',
-        'chimeres',
-        'hypermanias',
-        'redoing',
-        'boilersuits',
-        'schematizations',
-        'glucagons',
-        'succinates',
-        'extrinsic',
-        'climatic',
-        'paralytics',
-        'oviform',
-        'overbraked',
-        'trophallaxes',
-        'who',
-        'misdirecting',
-      ];
-
-      const updatedProducts = products.map((product, index) => {
+      const updatedProducts = products.map((product) => {
         product.image = `${
           images[Math.floor(Math.random() * images.length)]
         }.webp`;
 
-        product.name = names[index];
         product.price = Math.floor(Math.random() * (1000 - 50) + 50);
         product.favorite = false;
         return product;

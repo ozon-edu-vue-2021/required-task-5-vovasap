@@ -10,7 +10,7 @@
       <img :src="image" class="product__image" :alt="product.image" />
     </div>
     <p class="product__price">{{ product.price }} &#8381;</p>
-    <a href="#" class="product__name">{{ product.name }}</a>
+    <a href="#" class="product__name">{{ product.dish }}</a>
     <ProductCounter :count.sync="count" />
     <button class="product__add button" @click="addInCart">В корзину</button>
   </div>
