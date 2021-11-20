@@ -38,8 +38,8 @@ export default {
       alert(
         Object.values(this.products)
           .filter((product) => !!product.count)
-          .map((product) => product.name)
-          .join(', ')
+          .map((product) => product.dish)
+          .join(', '),
       );
     },
   },
