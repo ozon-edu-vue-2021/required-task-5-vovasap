@@ -29,7 +29,7 @@ export default {
       this.innerCount++;
     },
     decrease() {
-      if (this.innerCount === 0) return 0;
+      if (this.innerCount === 1) return 1;
       this.innerCount--;
     },
   },
