@@ -6,6 +6,7 @@
       <p class="purchased-product__price">{{ innerProduct.price }} &#8381;</p>
       <ProductCounter :count.sync="innerProduct.count" />
       <p>Сумма: {{ innerProduct.count * innerProduct.price }} &#8381;</p>
+      <button class="button" @click="removeProduct">Удалить</button>
     </div>
   </div>
 </template>
@@ -28,6 +29,11 @@ export default {
       image: require(`../../assets/images/${this.product.image}`),
       innerProduct: this.product,
     };
+  },
+  methods: {
+    removeProduct() {
+      this.$store.commit('removeFromCart', this.product);
+    },
   },
   watch: {
     innerProduct: {

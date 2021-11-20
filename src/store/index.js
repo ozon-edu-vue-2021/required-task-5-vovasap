@@ -43,6 +43,15 @@ export default new Vuex.Store({
         state.cart[product.id] = product;
       }
     },
+    removeFromCart: (state, removedProduct) => {
+      const cart = {};
+      Object.entries(state.cart).forEach(([id, product]) => {
+        if (Number(id) !== removedProduct.id) {
+          cart[id] = product;
+        }
+      });
+      state.cart = cart;
+    },
     setTotal: (state, total) => {
       state.total = total;
     },
